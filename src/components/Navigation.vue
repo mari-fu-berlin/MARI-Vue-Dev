@@ -1,18 +1,12 @@
 <template>
   <div>
-    <b-navbar type="dark" variant="primary" toggleable>
-      <b-nav-toggle target="nav_dropdown_collapse"></b-nav-toggle>
-      <b-navbar-brand>{{ projectName }}</b-navbar-brand>
-      <b-collapse is-nav id="nav_dropdown_collapse">
-        <b-nav is-nav-bar>
-          <b-nav-item to="/">Home</b-nav-item>
-          <b-nav-item-dropdown text="Seiten" right>
-            <b-dropdown-item v-for="page of pages" :key="page.id" :to="{ name: 'page', params: { id: page.id } }">{{ page.title.rendered }}</b-dropdown-item>
-          </b-nav-item-dropdown>
-          <b-nav-item to="/zlblist">ZLB</b-nav-item>
-        </b-nav>
-      </b-collapse>
-    </b-navbar>
+    <b-nav vertical>
+      <b-nav-item to="/">Home</b-nav-item>
+      <b-nav-item-dropdown text="Seiten">
+        <b-dropdown-item v-for="page of pages" :key="page.id" :to="{ name: 'page', params: { id: page.id } }">{{ page.title.rendered }}</b-dropdown-item>
+      </b-nav-item-dropdown>
+      <b-nav-item to="/zlblist">ZLB</b-nav-item>
+    </b-nav>
     <ul v-if="errors && errors.length">
       <li v-for="error of errors">
         {{ error.message }}

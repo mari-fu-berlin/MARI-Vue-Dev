@@ -1,15 +1,27 @@
 <template>
-  <div id="app" class="container">
-    <navigation></navigation>
-    <router-view></router-view>
-  </div>
+  <div id="app" class="container-fluid">
+    <b-row>
+      <b-col cols="3">
+        <identity></identity>
+        <navigation></navigation>
+      </b-col>
+      <b-col cols="6">
+        <router-view></router-view>
+      </b-col>
+    </b-row>
+  </div><!-- #app -->
 </template>
 
 <script>
 import Navigation from '@/components/Navigation'
+import Identity from '@/components/Identity'
 export default {
   name: 'app',
-  components: { navigation: Navigation }
+  components: {
+    navigation: Navigation,
+    identity: Identity
+  }
+
 }
 </script>
 
@@ -18,7 +30,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
     width: auto;
-    max-width: 900px;
-    padding: 0 15px;
+    padding: 0 ;
 }
 </style>
